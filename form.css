@@ -1,0 +1,166 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  background: url(/images/background.webp) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.formWrapper {
+  text-align: center;
+  /* max-width: 400px; */
+  /* margin: 0 auto; */
+}
+.form {
+  display: inline-block;
+  border-radius: 20px;
+  color: white;
+  width: 400px;
+  position: absolute;
+  top: 20px;
+  margin: 20px auto;
+  /* left: 50%; */
+  transform: translate(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  user-select: none;
+}
+
+.formInput {
+  margin-bottom: 10px;
+}
+
+.formInput.success input {
+  border-color: rgb(4, 128, 0);
+  background-image: linear-gradient(to bottom, white, white, rgb(4, 128, 0));
+}
+
+.formInput.error input {
+  border-color: rgb(243, 35, 35);
+  background-image: linear-gradient(to bottom, white, white, rgb(243, 35, 35));
+}
+
+.formInput small {
+  visibility: hidden;
+  font-size: 16px;
+}
+
+.formInput.error small {
+  visibility: visible;
+  color: rgb(243, 35, 35);
+}
+
+.formInput input {
+  width: 100%;
+  border-radius: 3px;
+  border: 3px solid white;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.photoWrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 3px;
+  background: url(/images/no-image.jpg) center;
+  background-size: cover;
+  margin: 15px auto 30px auto;
+  transition: all 0.2s ease-in;
+}
+.photoWrapper:hover {
+  transform: scale(1.1);
+  transition: all 0.4 ease;
+}
+
+button {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px;
+  transition: all 0.2s ease-in;
+}
+
+button:hover {
+  background-color: rgb(255, 98, 36);
+  color: white;
+}
+button:active {
+  background-color: rgb(253, 51, 1);
+  color: white;
+  transition: all 0.1s ease-in;
+}
+
+@media (max-width: 768px) {
+  * {
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+
+  .form {
+    padding: 20px;
+  }
+
+  .formInput input {
+    padding: 6px;
+    margin-top: 6px;
+  }
+
+  .formInput small {
+    font-size: 14px;
+  }
+  .photoWrapper {
+    margin: 10px auto 20px auto;
+  }
+}
+@media (max-width: 482px) {
+  * {
+    font-size: 14px;
+  }
+  .title {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .form {
+    padding: 15px;
+    max-width: 95vw;
+    margin: auto 0;
+    /* max-width: 400px; */
+  }
+
+  .formInput {
+    margin-bottom: 4px;
+  }
+  .formInput input {
+    padding: 4px;
+    margin-top: 4px;
+  }
+
+  .formInput small {
+    font-size: 12px;
+  }
+  .photoWrapper {
+    width: 100px;
+    height: 100px;
+    margin: 6px auto 14px auto;
+  }
+
+  .photoWrapper:hover {
+    transform: none;
+  }
+}

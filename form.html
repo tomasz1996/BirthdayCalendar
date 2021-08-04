@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Birthday Calendar</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="form.css">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet"> 
+<style>
+</style>
+
+<body>
+    <div class="formWrapper">
+        <form class="form" id="form">
+            <div class="title" id="title">Birthday Calendar</div>
+ 
+            <div class="formInput">
+                <label for="fullName">Name:</label><br>
+                <input class="fullName" id="fullName" type="text" placeholder="Your name..." name="fullName" maxlength="25" required><br>
+                <small></small><br>
+            </div>
+            
+            <div class="formInput">
+                <label for="birthDate">Birthday date:</label><br>
+                <input class="birthDate" id="birthDate" type="date" name="birthDate" onblur="fetchPicture('blur',this);"required><br>
+                <small>Date can be only from the past</small><br>
+            </div>
+            
+            <div class="formInput error">
+                <label for="email">Email:</label><br>
+                <input id="email" type="email" name="email" placeholder="Your email..." maxlength="35"required><br>
+                <small>Invalid email</small><br>
+            </div>
+            
+            <div class="formInput">
+                <label for="phone">Phone number:</label><br>
+                <input type="tel" id="phone" name="phone"
+                placeholder="Your phone number..." required><br>
+                <small>Invalid phone number</small><br>    
+            </div>
+        
+            <label for="photo">Photo:</label><br>
+            <div class="photoWrapper" id="photoWrapper"></div>
+
+            <button id="submitButton" type="submit">Submit</button>
+        </form>
+    </div>
+        
+
+    <script src="fetchApi.js"></script>
+    <script src="form.js"></script>
+</body>
+</html> 
