@@ -10,7 +10,7 @@
 
 <body>
     <div class="formWrapper">
-        <form class="form" id="form">
+        <form class="form" id="form" >
             <div class="title" id="title">Birthday Calendar</div>
  
             <div class="formInput">
@@ -21,11 +21,11 @@
             
             <div class="formInput">
                 <label for="birthDate">Birthday date:</label><br>
-                <input class="birthDate" id="birthDate" type="date" name="birthDate" onblur="fetchPicture('blur',this);"required><br>
+                <input class="birthDate" id="birthDate" type="date" name="birthDate" onblur="checkDate('blur',this);"required><br>
                 <small>Date can be only from the past</small><br>
             </div>
             
-            <div class="formInput error">
+            <div class="formInput">
                 <label for="email">Email:</label><br>
                 <input id="email" type="email" name="email" placeholder="Your email..." maxlength="35"required><br>
                 <small>Invalid email</small><br>
