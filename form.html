@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<title>Birthday Calendar</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="form.css">
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet"> 
-<style>
-</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday Form</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="form.css" rel="stylesheet" >
+    <link href="calendar.css" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet"> 
+    <link rel="shortcut icon" href="#">
+</head>
 
 <body>
-    <div class="formWrapper">
-        <form class="form" id="form" >
-            <div class="title" id="title">Birthday Calendar</div>
+    <div id="modalWindow" class="hidden">
+        <button class="modalBackButton" onclick="closeModal()">Back</button>
+    </div>
+
+    <div id="formWrapper">
+        <div class="form" id="form" >
+            <div class="title" id="title">Birthday Form</div>
  
             <div class="formInput">
                 <label for="fullName">Name:</label><br>
-                <input class="fullName" id="fullName" type="text" placeholder="Your name..." name="fullName" maxlength="25" required><br>
+                <input class="fullName" id="fullName" type="text" placeholder="Your name..." name="fullName" maxlength="15" required><br>
                 <small></small><br>
             </div>
             
@@ -41,12 +47,85 @@
             <label for="photo">Photo:</label><br>
             <div class="photoWrapper" id="photoWrapper"></div>
 
-            <button id="submitButton" type="submit">Submit</button>
-        </form>
+            <button id="submitButton" class="formButton" onclick="submitForm()">Submit</button>
+            <button id="goToCalendarButton" class="formButton" onclick="goToCalendar()">Go to Calendar</button>
+        </div>
     </div>
-        
 
-    <script src="fetchApi.js"></script>
-    <script src="form.js"></script>
+    <!-- CALENDAR -->
+     
+    <div id="container" class="hidden">
+        <div id="header">
+          <div id="monthDisplay"></div>
+          <div>
+            <button id="returnButton">Return</button>
+            <button id="backButton"><</button>
+            <button id="nextButton">></button>
+          </div>
+        </div>
+  
+        <div id="weekdays">
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+            <div>Sun</div>
+        </div>
+  
+        <div id="calendar"></div>
+
+        <div class="userList" id="userList">
+            <div class="userListTitle">Users list</div>
+        </div>
+
+    </div>   
+
+
+    <div id="editFormWrapper" class="hidden">
+        <div class="form" id="form" >
+            <div class="title" id="title">Edit user info</div>
+ 
+            <div class="formInput">
+                <label for="editFullName">New name:</label><br>
+                <input class="editFullName" id="editFullName" type="text" placeholder="Edit name" name="editFullName" maxlength="15" required><br>
+                <small></small><br>
+            </div>
+            
+            <div class="formInput">
+                <label for="editBirthDate">New birthday date:</label><br>
+                <input class="editBirthDate" id="editBirthDate" type="date" name="editBirthDate" onblur="checkDate('blur',this);"required><br>
+                <small>Date can be only from the past</small><br>
+            </div>
+            
+            <div class="formInput">
+                <label for="editEmail">New email:</label><br>
+                <input id="editEmail" type="email" name="editEmail" placeholder="Edit email..." maxlength="35"required><br>
+                <small>Invalid email</small><br>
+            </div>
+            
+            <div class="formInput">
+                <label for="editPhone">New phone number:</label><br>
+                <input type="tel" id="editPhone" name="editPhone"
+                placeholder="Edit phone number..." required><br>
+                <small>Invalid phone number</small><br>    
+            </div>
+
+            <button id="submitButton" class="formButton" onclick="submitEdit()"">Save</button>
+            <button id="goToCalendarButton" class="formButton" onclick="goToCalendar()">Cancel</button>
+        </div>
+    </div>
+
+    <div class="modalWindow hidden" id="modalWindow">
+        <button class="modalBackButton">Back</button>
+        <div class="modaltextWrapper">
+            <div class="modalTitle" id="modalTitle"></div>
+            <div class="modalExplanation" id="modalExplanation"></div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="form.js"></script>
+    <script type="text/javascript" src="calendar.js"></script>
 </body>
 </html> 

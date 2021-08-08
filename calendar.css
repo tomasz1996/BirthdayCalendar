@@ -1,0 +1,313 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  background-color: #fffcff;
+}
+
+.hidden {
+  display: none;
+}
+
+#header {
+  padding: 10px;
+  color: #d36c6c;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+#returnButton,
+#backButton,
+#nextButton {
+  width: 75px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(248, 111, 69);
+  transition: all 0.15s ease-in;
+}
+
+#returnButton:hover,
+#backButton:hover,
+#nextButton:hover {
+  color: rgb(255, 98, 36);
+  background-color: white;
+}
+
+#monthDisplay {
+  font-size: 30px;
+}
+
+#container {
+  width: 100vw;
+  max-width: 700px;
+  margin: 0 20px 20px 20px;
+}
+
+#weekdays {
+  width: 100%;
+  display: flex;
+  color: #800707;
+}
+
+#weekdays div {
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+}
+
+#calendar {
+  width: 100%;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.day {
+  position: relative;
+  width: 100%;
+  padding: 3px;
+  /* make it square by adding padding*/
+  height: 0;
+  padding-bottom: 100%;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 0px 0px 3px #dfc9bc;
+  display: block;
+  flex-direction: column;
+}
+
+.day:hover {
+  background-color: #f8efea;
+}
+
+#currentDay {
+  box-sizing: border-box;
+  border-left: 5px solid orange;
+  background-color: #f8e3d5;
+}
+.daySquareInfo {
+  font-size: 10px;
+  word-break: break-word;
+  line-height: 0.5rem;
+}
+
+.padding {
+  cursor: default;
+  background-color: #f8f5f3;
+  box-shadow: none;
+}
+
+.userListTitle {
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.788);
+  text-align: center;
+  padding: 5px 0;
+  margin: 10px 10px 0 10px;
+}
+
+.userList {
+  min-height: 100px;
+  max-height: 250px;
+  color: white;
+  padding: 3px 0;
+  background-color: rgba(0, 0, 0, 0.288);
+  border-radius: 8px;
+  box-shadow: 6px 5px 8px black;
+  margin-top: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.userWrapper {
+  position: relative;
+  padding: 3px;
+  height: 120px;
+  background-color: rgba(34, 13, 13, 0.588);
+  border-radius: 8px;
+  box-shadow: 2px 3px 4px black;
+  margin: 10px;
+}
+
+.personalInfoWrapper {
+  display: inline-block;
+  width: 20%;
+  height: 70px;
+  padding: 10px 0 0 10px;
+}
+
+.personalButtonsWrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.editButton,
+.removeButton {
+  width: 75px;
+  cursor: pointer;
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  padding: 3px;
+  border-radius: 3px;
+  color: white;
+  background-color: rgb(250, 82, 31);
+}
+
+.editButton {
+  margin-right: 20px;
+}
+
+.removeButton {
+  margin-left: 20px;
+}
+
+#modalWindow {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.modalBackButton {
+  position: fixed;
+  width: 75px;
+  left: 0;
+  top: 0;
+  padding: 8px;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: rgb(250, 82, 31);
+  cursor: pointer;
+  color: white;
+  transition: all 0.15s ease-in;
+}
+
+.modalBackButton:hover {
+  color: rgb(255, 98, 36);
+  background-color: white;
+}
+
+.modaltextWrapper {
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  line-height: 1.5rem;
+  margin: 80px auto;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2%;
+  border-radius: 10px;
+}
+
+.modalTitle {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modalExplanation {
+  text-align: center;
+  text-align: justify;
+}
+
+@media (max-width: 500px) {
+  #container {
+    margin: 0 5px 5px 5px;
+  }
+
+  .userList {
+    min-height: 150px;
+  }
+
+  #monthDisplay {
+    font-size: 20px;
+  }
+
+  #currentDay {
+    border-left: 2px solid orange;
+  }
+
+  .modalBackButton,
+  #returnButton,
+  #backButton,
+  #nextButton {
+    width: 60px;
+    padding: 2px;
+    font-size: 15px;
+  }
+  .modaltextWrapper {
+    width: 95%;
+    line-height: 1.3rem;
+  }
+  .modalTitle {
+    margin-bottom: 15px;
+  }
+  .modalExplanation {
+    font-size: 0.9rem;
+  }
+
+  .personalInfo {
+    font-size: 14px;
+  }
+
+  .personalButtonsWrapper {
+    position: absolute;
+    left: 80px;
+  }
+
+  .editButton,
+  .removeButton {
+    width: 60px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  .editButton {
+    margin-right: 5px;
+  }
+
+  .removeButton {
+    margin-left: 5px;
+  }
+
+  .daySquareInfo {
+    font-size: 8px;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 400px) {
+  #backButton,
+  #nextButton {
+    width: 25px;
+  }
+  #monthDisplay {
+    font-size: 16px;
+  }
+  .day {
+    font-size: 9px;
+    line-height: 0.2;
+  }
+  .personalInfo {
+    font-size: 12px;
+  }
+}
